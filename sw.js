@@ -1,6 +1,7 @@
 var cacheName = 'PWA Project';
 var filesToCache = [
   './',
+  './manifest.json',
   './index.html',
   './main.js'
 ];
