@@ -1,6 +1,10 @@
 {
     "short_name": "PWA",
     "name": "PWA Project", 
+    "start_url": "index.html",
+    "background_color": "gray",
+    "display": "standalone",
+    "theme_color": "gray",  
     "icons": [
       {
         "src": "icons2/manifest-icon-96.maskable.png",
@@ -64,11 +68,5 @@
       }
 
                 
-    ],  
-    "start_url": "/index.html",
-    "scope": "/",
-    "background_color": "gray",
-    "display": "standalone",
-    "theme_color": "gray"  
-    
+    ]    
 }
