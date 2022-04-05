@@ -1,7 +1,6 @@
 {
     "short_name": "PWA",
     "name": "PWA Project", 
-    "description": "My First PWA",
     "icons": [
         {
           "src": "icons2/manifest-icon-192.maskable.png",
