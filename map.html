@@ -1,0 +1,38 @@
+<style>
+    #mymap {
+        height: 180px;
+    }
+</style>
+<a href="index.html">Przejdź do ekranu głównego</a>
+
+<button onclick="GetPosition()"><img src='map2.png'></button><br>
+<p>
+    latitude: <span id='latitude'></span>&deg;<br />
+    longitude: <span id="longitude"></span>&deg;
+</p>
+
+<div id="mymap"></div>
+    <script>
+        function GetPosition (){
+            if ('geolocation' in navigator) {
+                console.log('geolocation available');
+                navigator.geolocation.getCurrentPosition(position => {
+                lat = position.coords.latitude;
+                lon = position.coords.longitude;
+                console.log(lat, lon);
+                document.getElementById('latitude').textContent = lat;
+                document.getElementById('longitude').textContent = lon;
+
+                const mymap = L.map('mymap').setView([lat, lon], 15);
+                const attribution =
+                    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+                const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+                const tiles = L.tileLayer(tileUrl, { attribution });
+                tiles.addTo(mymap);
+                const marker = L.marker([lat, lon]).addTo(mymap);
+                });
+            } else {
+                console.log('geolocation not available');
+            }
+        }
+    </script>
