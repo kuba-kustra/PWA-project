@@ -6,20 +6,26 @@ var filesToCache = [
   './main.js'
 ];
 
-/* Start the service worker and cache all of the app's content */
-self.addEventListener('install', function(e) {
-  e.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      return cache.addAll(filesToCache);
-    })
-  );
-});
+// install worker
+self.addEventListener("install", installEvent => {
+  installEvent.waitUntil( // wait untill my parameter is resolved
+      caches.open(staticCacheName).then(cache => {
+          console.log("Caching shell assets.");
+          cache.addAll(assets)
+      })
+  )
+})
 
-/* Serve cached content when offline */
-self.addEventListener('fetch', function(e) {
-  e.respondWith(
-    caches.match(e.request).then(function(response) {
-      return response || fetch(e.request);
-    })
-  );
-});
+// activate event (reainstallation)
+self.addEventListener("activate", activateEvent => {
+  console.log("Service Worker activated.")
+})
+
+// fetch event
+self.addEventListener("fetch", fetchEvent => {
+  fetchEvent.respondWith(
+      caches.match(fetchEvent.request).then(res => {
+          return res || fetch(fetchEvent.request)
+      })
+  )
+})
