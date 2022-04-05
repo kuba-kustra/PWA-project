@@ -8,7 +8,7 @@ var filesToCache = [
 // install worker
 self.addEventListener("install", installEvent => {
   installEvent.waitUntil( // wait untill my parameter is resolved
-      caches.open(CacheName).then(cache => {
+      caches.open(cacheName).then(cache => {
           console.log("Caching shell assets.");
           cache.addAll(filesToCache)
       })
