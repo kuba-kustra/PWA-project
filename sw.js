@@ -2,7 +2,13 @@ var cacheName = 'PWA Project';
 var filesToCache = [
   './',
   './index.html',
-  './main.js'
+  './main.js',
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js",
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css",
+  "https://unpkg.com/leaflet@1.4.0/dist/leaflet.css",
+  'https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'
+
+
 ];
 
 // install worker
