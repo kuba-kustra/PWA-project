@@ -66,6 +66,7 @@
                 
     ],  
     "start_url": "/index.html",
+    "scope": "/",
     "background_color": "gray",
     "display": "standalone",
     "theme_color": "gray"  
